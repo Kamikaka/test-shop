@@ -18,6 +18,12 @@ body{
 }
 .row{
     display: flex;
+    &.jc_space-between{
+        justify-content: space-between;
+    }
+    &.ai_center{
+        align-items: center;
+    }
 }
 .white-bg{
     background-color: $white-bg;
@@ -26,4 +32,77 @@ body{
     border-radius: $border-radius;
     background-color: $white-bg;
     box-shadow: $box-shadow;
+}
+.header_padding-bg-box{
+    padding: 0.875rem 1.25rem;
+    margin-top: 1.875rem;
+}
+.header-icon{
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-flex;
+    &:first-child{
+        margin-left: 0;
+    }
+    &:last-child{
+        margin-right: 0;
+    }
+    &.mail{
+        svg{
+            width: 24px;
+            height: 18px;
+        }
+    }
+    &.calendar{
+        svg{
+            width: 22px;
+            height: 22px;
+        }
+    }
+    &.star{
+        svg{
+            width: 24px;
+            height: 22px;
+        }
+    }
+    &.bell{
+        svg{
+            width: 22px;
+            height: 22px;
+        }
+    }
+    &.search{
+        svg{
+            width: 22px;
+            height: 20px;
+        }
+    }
+}
+.header-user-info{
+    margin-left: 28px;
+    text-align: right;
+    .user-name{
+        font-size: 0.875rem;
+    }
+    .user-status{
+        font-size: 0.688rem;
+        font-weight: 300;
+    }
+    .user-avatar{
+        margin-left: 14px;
+        border-radius: 50%;
+        width: 34px;
+        height: 34px;
+        position: relative;
+        overflow: hidden;
+        img{
+            width: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
 }
