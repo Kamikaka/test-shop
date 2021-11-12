@@ -16,3 +16,14 @@ body{
     max-width: 1650px;
     margin: 0 auto;
 }
+.row{
+    display: flex;
+}
+.white-bg{
+    background-color: $white-bg;
+}
+.bg-box{
+    border-radius: $border-radius;
+    background-color: $white-bg;
+    box-shadow: $box-shadow;
+}

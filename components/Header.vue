@@ -1,7 +1,9 @@
 <template>
     <header>
         <div class="container">
-            <p>Какой то текст</p>
+            <div class="row">
+                <div class="bg-box"><p>qwewqe</p><p>qwewqe</p></div>
+            </div>
         </div>
     </header>
 </template>
