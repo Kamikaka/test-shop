@@ -16,7 +16,7 @@
     "normalize-css": "^2.3.1",
     "nuxt": "^2.15.7",
     "vue-select": "^3.16.0",
-    "vue-simple-range-slider": "^0.1.10"
+    "vue-slider-component": "^3.2.15"
   },
   "devDependencies": {
     "fibers": "^5.0.0",

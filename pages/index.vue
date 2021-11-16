@@ -13,23 +13,23 @@
             <div class="catalog_filter_title">Multi Range</div>
             <div class="catalog_filter_item">
               <label class="input-radio">
-                <input type="radio" value="10" name="price" @change="catalog_price.valMin = catalog_price.min, catalog_price.valMax = 10">
+                <input type="radio" value="10" name="price" @change="catalog_price.valMin = catalog_price.min, catalog_price.valMax = 10, catalog_pageOfItems = catalog_items_filter">
                 <div class="caption">$10</div>
               </label>
               <label class="input-radio">
-                <input type="radio" value="100" name="price" @change="catalog_price.valMin = 11, catalog_price.valMax = 100">
+                <input type="radio" value="100" name="price" @change="catalog_price.valMin = 11, catalog_price.valMax = 100, catalog_pageOfItems = catalog_items_filter">
                 <div class="caption">$10 - $100</div>
               </label>
               <label class="input-radio">
-                <input type="radio" value="500" name="price" @change="catalog_price.valMin = 101, catalog_price.valMax = 500">
+                <input type="radio" value="500" name="price" @change="catalog_price.valMin = 101, catalog_price.valMax = 500, catalog_pageOfItems = catalog_items_filter">
                 <div class="caption">$100 - $500</div>
               </label>
               <label class="input-radio">
-                <input type="radio" value="500" name="price" @change="catalog_price.valMin = 500, catalog_price.valMax = catalog_price.max">
+                <input type="radio" value="500" name="price" @change="catalog_price.valMin = 500, catalog_price.valMax = catalog_price.max, catalog_pageOfItems = catalog_items_filter">
                 <div class="caption">$500</div>
               </label>
               <label class="input-radio">
-                <input type="radio" value="" checked name="price" @change="catalog_price.valMin = catalog_price.min, catalog_price.valMax = catalog_price.max">
+                <input type="radio" value="" checked name="price" @change="catalog_price.valMin = catalog_price.min, catalog_price.valMax = catalog_price.max, catalog_pageOfItems = catalog_items_filter">
                 <div class="caption">All</div>
               </label>
             </div>
@@ -124,10 +124,9 @@ const customLabels = {
 import axios from 'axios'
 import CatalogListElement from '~/components/catalog/Catalog-list-element.vue'
 import JwPagination from 'jw-vue-pagination';
+
 import vSelect from 'vue-select';
 import 'vue-select/dist/vue-select.css';
-
-
 
 export default {
   components: {CatalogListElement, JwPagination, vSelect},
@@ -161,12 +160,6 @@ export default {
       }
     }
   },
-  // created() {
-  //   window.addEventListener("resize", this.onResize);
-  // },
-  // destroyed() {
-  //   window.removeEventListener("resize", this.onResize);
-  // },
   computed: {
     catalog_items_filter: function(){
       return this.filterProductsByPrice(
@@ -180,11 +173,9 @@ export default {
       );
     },
   },
+  watch: {
+  },
   methods: {
-    // onResize(e) {
-    //   this.width = window.innerWidth;
-    // },
-
     onChangePage(catalog_pageOfItems) {
       this.catalog_pageOfItems = catalog_pageOfItems;
     },
@@ -228,7 +219,6 @@ export default {
       }
       this.catalog_pageOfItems = this.catalog_items_filter;
     },
-
     filterProductsByCategory: function(products){
       if(this.filters.category.length){
         return products.filter(product => this.filters.category.includes(product.categoryId))
@@ -236,7 +226,6 @@ export default {
         return products
       }
     },
-
     filterProductsByBrand: function(products){
       if(this.filters.brand.length){
         return products.filter(product => this.filters.brand.includes(product.brandId))
@@ -244,7 +233,6 @@ export default {
         return products
       }
     },
-
     filterProductsByRating: function(products){
       if(this.filters.rating.length){
         return products.filter(product => parseInt(product.rating) >= this.filters.rating)
@@ -252,7 +240,6 @@ export default {
         return products
       }
     },
-
     filterProductsByName: function(products) {
       if(this.filters.search){
         return products.filter(product => product.title.toLowerCase().includes(this.filters.search.toLowerCase()))
@@ -260,7 +247,6 @@ export default {
         return products
       }
     },
-
     filterProductsByPrice: function(products) {
       if(this.catalog_price.valMin || this.catalog_price.valMax){
         return products.filter(product => (product.price >= this.catalog_price.valMin && product.price <= this.catalog_price.valMax))

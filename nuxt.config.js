@@ -3,7 +3,7 @@ export default {
     AXIOS_URL: "https://611a2bc9cbf1b30017eb5559.mockapi.io",
   },
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  // target: 'static',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
