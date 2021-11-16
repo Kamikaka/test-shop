@@ -2,8 +2,6 @@
     <div class="catalog-list-el">
         <div class="bg-box">
             <div class="catalog-list-el-head">
-                <p>categoryId {{ item.categoryId }}</p>
-                <p>brandId {{ item.brandId }}</p>
                 <div class="catalog-list-el-img">
                     <img :src="item.image" :alt="item.title" loading="lazy">
                 </div>
